@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.spec
+build/
+dist/
+bin/
+.buildozer/
+*.zip
+*.key
+.DS_Store
+received_files/
+downloads/
+Received/
+Name*

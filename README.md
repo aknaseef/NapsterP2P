@@ -2,14 +2,31 @@
 **Secure, Resumable, Cross-Platform File Transfer (Mac & Android)**
 
 Napster P2P is a local file sharing tool designed to be robust ("The Tunnel"), secure (Fernet Encryption), and user-friendly. It allows you to drag-and-drop files between your Mac and Android device over WiFi without the cloud.
-Unable to render rich display
+## 🏗️ System Architecture
 
-Parse error on line 15:
-...ansfer| ClientB## Features* **📡 Cr
----------------------^
-Expecting 'SEMI', 'NEWLINE', 'EOF', 'AMP', 'START_LINK', 'LINK', 'LINK_ID', got 'NODE_STRING'
+```mermaid
+graph TD
+    %% Nodes
+    Server[Central Index Server]
+    ClientA[Peer A]
+    ClientB[Peer B]
+    ClientC[Peer C]
 
-For more information, see https://docs.github.com/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams
+    %% Styles
+    style Server fill:#f9f,stroke:#333,stroke-width:2px
+    style ClientA fill:#bbf,stroke:#333,stroke-width:2px
+    style ClientB fill:#bbf,stroke:#333,stroke-width:2px
+    style ClientC fill:#bbf,stroke:#333,stroke-width:2px
+
+    %% Connections to Server (Control Plane)
+    ClientA -- 1. Register/Search --> Server
+    ClientB -- 1. Register/Search --> Server
+    ClientC -- 1. Register/Search --> Server
+
+    %% P2P Connections (Data Plane)
+    ClientA -.->|2. Direct File Transfer| ClientB
+```
+
 ## Features
 *   **📡 Cross-Platform**: Works on macOS (Desktop App) and Android (KivyMD App).
 *   **🚇 The Tunnel**: Resumable transfers. If your WiFi drops at 99%, it resumes from 99%.

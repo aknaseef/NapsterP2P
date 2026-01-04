@@ -26,6 +26,7 @@ graph TD
     %% P2P Connections (Data Plane)
     ClientA -.->|2. Direct File Transfer| ClientB
 
+
 ## Features
 *   **📡 Cross-Platform**: Works on macOS (Desktop App) and Android (KivyMD App).
 *   **🚇 The Tunnel**: Resumable transfers. If your WiFi drops at 99%, it resumes from 99%.

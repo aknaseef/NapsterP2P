@@ -1,7 +1,7 @@
 # Napster P2P 🚀
-**Secure, Resumable, Cross-Platform File Transfer (Mac & Android)**
+**Secure, Resumable, Cross-Platform File Transfer (Windows, Mac & Android)**
 
-Napster P2P is a local file sharing tool designed to be robust ("The Tunnel"), secure (Fernet Encryption), and user-friendly. It allows you to drag-and-drop files between your Mac and Android device over WiFi without the cloud.
+Napster P2P is a local file sharing tool designed to be robust ("The Tunnel"), secure (Fernet Encryption), and user-friendly. It allows you to drag-and-drop files between your Windows PC, Mac, and Android device over WiFi without the cloud.
 ## 🏗️ System Architecture
 
 ```mermaid
@@ -28,7 +28,7 @@ graph TD
 ```
 
 ## Features
-*   **📡 Cross-Platform**: Works on macOS (Desktop App) and Android (KivyMD App).
+*   **📡 Cross-Platform**: Works on Windows, macOS (Desktop App), and Android (KivyMD App).
 *   **🚇 The Tunnel**: Resumable transfers. If your WiFi drops at 99%, it resumes from 99%.
 *   **🔒 Encrypted**: All transfers are encrypted with a session key using `cryptography.fernet`.
 *   **📊 Visual Progress**: Real-time progress bar for tracking large files.
@@ -36,10 +36,23 @@ graph TD
 
 ## Installation
 
+### Windows
+1.  Ensure you have [Python](https://www.python.org/downloads/) installed.
+2.  Download this repository.
+3.  Install dependencies:
+    ```bash
+    pip install kivy kivymd cryptography watchdog
+    ```
+4.  Run the application:
+    ```bash
+    python main.py
+    ```
+
 ### Mac (macOS)
 1.  Download the latest release (`NapsterP2P.app`).
 2.  Move it to your `Applications` folder or `Desktop`.
 3.  Double-click to launch.
+4.  Alternatively, you can run from source following the Windows instructions (use `python3`).
 
 ### Android
 *Note: This is a developer build. You must compile the APK yourself using Google Colab.*

@@ -318,7 +318,7 @@ def discover_receivers(timeout=3):
         # s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1) # Not needed for listening
         s.settimeout(timeout)
         try:
-            s.bind(('', UDP_PORT))
+            s.bind(('127.0.0.1', UDP_PORT))
             print(f"[*] Scanning for receivers on port {UDP_PORT}...")
             
             start = time.time()

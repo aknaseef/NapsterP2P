@@ -86,7 +86,7 @@ class Protocol:
 # --- Receiver (Server) ---
 
 class Receiver:
-    def __init__(self, port=9999, output_dir='.', key=None, callback=None):
+    def __init__(self, port=9999, output_dir='.', key=None, callback=None, host='127.0.0.1'):
         self.port = port
         self.output_dir = output_dir
         self.cipher = Fernet(key)
@@ -95,6 +95,7 @@ class Receiver:
         self.running = False
         self.sock = None
         self.broadcaster = Broadcaster()
+        self.host = host
 
     def log(self, msg):
         if self.callback:
@@ -118,13 +119,13 @@ class Receiver:
             self.sock = s
             s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             try:
-                s.bind(('0.0.0.0', self.port))
+                s.bind((self.host, self.port))
             except OSError as e:
-                self.log(f"Error binding to port {self.port}: {e}")
+                self.log(f"Error binding to {self.host}:{self.port}: {e}")
                 return
                 
             s.listen(5)
-            self.log(f"[*] Listening on 0.0.0.0:{self.port}")
+            self.log(f"[*] Listening on {self.host}:{self.port}")
             self.log(f"[*] Saving to: {os.path.abspath(self.output_dir)}")
 
             while self.running:
